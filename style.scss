@@ -140,8 +140,8 @@ body {
 
   &__leafs {
     position: relative;
-    width: 18vmin;
-    height: 16vmin;
+    width: 20vmin;
+    height: 18vmin;
     animation: blooming-flower 2s backwards;
 
     $delay: 0.8;
@@ -165,6 +165,44 @@ body {
       background-color: var(--hydrangea-glow);
       filter: blur(10vmin);
     }
+
+    &::before {
+      content: "";
+      position: absolute;
+      left: 50%;
+      top: -5vmin;
+      width: 1.8vmin;
+      height: 1.8vmin;
+      transform: translateX(-50%);
+      border-radius: 45% 55% 60% 40%;
+      background-color: var(--hydrangea-light);
+      box-shadow:
+        -6vmin -2vmin 0 0 var(--hydrangea-light),
+        -4vmin -3.5vmin 0 0 var(--hydrangea-mid),
+        -2vmin -4vmin 0 0 var(--hydrangea-light),
+        0.5vmin -4.5vmin 0 0 var(--hydrangea-mid),
+        3vmin -4vmin 0 0 var(--hydrangea-light),
+        5vmin -2.5vmin 0 0 var(--hydrangea-mid),
+        -7vmin 0.5vmin 0 0 var(--hydrangea-light),
+        -4.5vmin 0 0 0 var(--hydrangea-glow),
+        -2vmin -0.5vmin 0 0 var(--hydrangea-light),
+        0.5vmin -0.8vmin 0 0 var(--hydrangea-mid),
+        3.5vmin -0.5vmin 0 0 var(--hydrangea-light),
+        6vmin 0.8vmin 0 0 var(--hydrangea-mid),
+        -5.5vmin 3vmin 0 0 var(--hydrangea-light),
+        -3vmin 2.5vmin 0 0 var(--hydrangea-mid),
+        -0.5vmin 2vmin 0 0 var(--hydrangea-light),
+        2vmin 2.5vmin 0 0 var(--hydrangea-glow),
+        4.5vmin 3.5vmin 0 0 var(--hydrangea-light),
+        6.5vmin 2.5vmin 0 0 var(--hydrangea-mid),
+        -4vmin 5.5vmin 0 0 var(--hydrangea-light),
+        -1.5vmin 5vmin 0 0 var(--hydrangea-mid),
+        1.5vmin 5.2vmin 0 0 var(--hydrangea-light),
+        4vmin 5.5vmin 0 0 var(--hydrangea-glow),
+        6vmin 5vmin 0 0 var(--hydrangea-light);
+      opacity: 0.96;
+      filter: drop-shadow(0 0.4vmin 0.6vmin rgba(10, 25, 60, 0.3));
+    }
   }
 
   &__leaf {
@@ -181,7 +219,7 @@ body {
       var(--hydrangea-light)
     );
     transform-origin: bottom center;
-    opacity: 0.9;
+    opacity: 0;
     box-shadow:
       inset 0 0 2vmin rgba(255, 255, 255, 0.5),
       2.2vmin 1vmin 0 -0.8vmin var(--hydrangea-light),
@@ -224,7 +262,7 @@ body {
     width: 6vmin;
     height: 6vmin;
     border-radius: 50%;
-    background-color: rgba(200, 215, 255, 0.75);
+    background-color: rgba(200, 215, 255, 0.05);
 
     &::after {
       content: "";
