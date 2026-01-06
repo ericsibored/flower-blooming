@@ -8,6 +8,10 @@
 
 :root {
   --dark-color: #000;
+  --hydrangea-light: #c8d7ff;
+  --hydrangea-mid: #7aa7ff;
+  --hydrangea-dark: #3b6edc;
+  --hydrangea-glow: #5a8bff;
 }
 
 body {
@@ -111,6 +115,8 @@ body {
 }
 .flower__leafs {
   position: relative;
+  width: 20vmin;
+  height: 18vmin;
   animation: blooming-flower 2s backwards;
 }
 .flower__leafs--1 {
@@ -130,21 +136,39 @@ body {
   transform: translate(-50%, -100%);
   width: 8vmin;
   height: 8vmin;
-  background-color: #6bf0ff;
+  background-color: var(--hydrangea-glow);
   filter: blur(10vmin);
+}
+.flower__leafs::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: -5vmin;
+  width: 1.8vmin;
+  height: 1.8vmin;
+  transform: translateX(-50%);
+  border-radius: 45% 55% 60% 40%;
+  background-color: var(--hydrangea-light);
+  box-shadow: -6vmin -2vmin 0 0 var(--hydrangea-light), -4vmin -3.5vmin 0 0 var(--hydrangea-mid), -2vmin -4vmin 0 0 var(--hydrangea-light), 0.5vmin -4.5vmin 0 0 var(--hydrangea-mid), 3vmin -4vmin 0 0 var(--hydrangea-light), 5vmin -2.5vmin 0 0 var(--hydrangea-mid), -7vmin 0.5vmin 0 0 var(--hydrangea-light), -4.5vmin 0 0 0 var(--hydrangea-glow), -2vmin -0.5vmin 0 0 var(--hydrangea-light), 0.5vmin -0.8vmin 0 0 var(--hydrangea-mid), 3.5vmin -0.5vmin 0 0 var(--hydrangea-light), 6vmin 0.8vmin 0 0 var(--hydrangea-mid), -5.5vmin 3vmin 0 0 var(--hydrangea-light), -3vmin 2.5vmin 0 0 var(--hydrangea-mid), -0.5vmin 2vmin 0 0 var(--hydrangea-light), 2vmin 2.5vmin 0 0 var(--hydrangea-glow), 4.5vmin 3.5vmin 0 0 var(--hydrangea-light), 6.5vmin 2.5vmin 0 0 var(--hydrangea-mid), -4vmin 5.5vmin 0 0 var(--hydrangea-light), -1.5vmin 5vmin 0 0 var(--hydrangea-mid), 1.5vmin 5.2vmin 0 0 var(--hydrangea-light), 4vmin 5.5vmin 0 0 var(--hydrangea-glow), 6vmin 5vmin 0 0 var(--hydrangea-light);
+  opacity: 0.96;
+  filter: drop-shadow(0 0.4vmin 0.6vmin rgba(10, 25, 60, 0.3));
 }
 .flower__leaf {
   position: absolute;
   bottom: 0;
   left: 50%;
-  width: 8vmin;
-  height: 11vmin;
-  border-radius: 51% 49% 47% 53%/44% 45% 55% 69%;
-  background-color: #a7ffee;
-  background-image: linear-gradient(to top, #54b8aa, #a7ffee);
+  width: 6vmin;
+  height: 6vmin;
+  border-radius: 50%;
+  background-color: var(--hydrangea-light);
+  background-image: linear-gradient(
+      to top,
+      var(--hydrangea-dark),
+      var(--hydrangea-light)
+    );
   transform-origin: bottom center;
-  opacity: 0.9;
-  box-shadow: inset 0 0 2vmin rgba(255, 255, 255, 0.5);
+  opacity: 0;
+  box-shadow: inset 0 0 2vmin rgba(255, 255, 255, 0.5), 2.2vmin 1vmin 0 -0.8vmin var(--hydrangea-light), -2.4vmin 0.5vmin 0 -0.9vmin var(--hydrangea-mid), 0 2.6vmin 0 -0.9vmin var(--hydrangea-light), -0.8vmin 3.4vmin 0 -1.1vmin var(--hydrangea-glow);
 }
 .flower__leaf--1 {
   transform: translate(-10%, 1%) rotateY(40deg) rotateX(-50deg);
@@ -156,23 +180,27 @@ body {
   transform: translate(-90%, 0%) rotateY(45deg) rotateX(50deg);
 }
 .flower__leaf--4 {
-  width: 8vmin;
-  height: 8vmin;
-  transform-origin: bottom left;
-  border-radius: 4vmin 10vmin 4vmin 4vmin;
-  transform: translate(0%, 18%) rotateX(70deg) rotate(-43deg);
-  background-image: linear-gradient(to top, #39c6d6, #a7ffee);
+  width: 6vmin;
+  height: 6vmin;
+  transform-origin: center;
+  border-radius: 50%;
+  transform: translate(-20%, 15%) rotateX(50deg) rotate(-20deg);
+  background-image: linear-gradient(
+        to top,
+        var(--hydrangea-mid),
+        var(--hydrangea-light)
+      );
   z-index: 1;
   opacity: 0.8;
 }
 .flower__white-circle {
   position: absolute;
-  left: -3.5vmin;
-  top: -3vmin;
-  width: 9vmin;
-  height: 4vmin;
+  left: -2.5vmin;
+  top: -2.5vmin;
+  width: 6vmin;
+  height: 6vmin;
   border-radius: 50%;
-  background-color: #fff;
+  background-color: rgba(200, 215, 255, 0.05);
 }
 .flower__white-circle::after {
   content: "";
@@ -239,13 +267,13 @@ body {
   bottom: 0vmin;
   width: 1vmin;
   height: 1vmin;
-  background-color: rgb(255, 251, 0);
+  background-color: var(--hydrangea-mid);
   border-radius: 50%;
   filter: blur(0.2vmin);
   animation: light-ans 4s linear infinite backwards;
 }
 .flower__light:nth-child(odd) {
-  background-color: #23f0ff;
+  background-color: var(--hydrangea-glow);
 }
 .flower__light--1 {
   left: -2vmin;
