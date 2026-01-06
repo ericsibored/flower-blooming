@@ -8,6 +8,10 @@
 
 :root {
   --dark-color: #000;
+  --hydrangea-light: #c8d7ff;
+  --hydrangea-mid: #7aa7ff;
+  --hydrangea-dark: #3b6edc;
+  --hydrangea-glow: #5a8bff;
 }
 
 body {
@@ -136,6 +140,8 @@ body {
 
   &__leafs {
     position: relative;
+    width: 20vmin;
+    height: 18vmin;
     animation: blooming-flower 2s backwards;
 
     $delay: 0.8;
@@ -156,8 +162,99 @@ body {
       transform: translate(-50%, -100%);
       width: 8vmin;
       height: 8vmin;
-      background-color: #6bf0ff;
+      background-color: var(--hydrangea-glow);
       filter: blur(10vmin);
+    }
+
+    &::before {
+      content: "";
+      position: absolute;
+      left: 50%;
+      top: -7vmin;
+      width: 20vmin;
+      height: 18vmin;
+      transform: translateX(-50%);
+      border-radius: 50%;
+      background-image: radial-gradient(
+          circle at 20% 30%,
+          var(--hydrangea-light) 0 33%,
+          var(--hydrangea-mid) 34% 40%,
+          transparent 41%
+        ),
+        radial-gradient(
+          circle at 45% 18%,
+          var(--hydrangea-light) 0 32%,
+          var(--hydrangea-mid) 33% 39%,
+          transparent 40%
+        ),
+        radial-gradient(
+          circle at 70% 30%,
+          var(--hydrangea-light) 0 33%,
+          var(--hydrangea-mid) 34% 40%,
+          transparent 41%
+        ),
+        radial-gradient(
+          circle at 30% 55%,
+          var(--hydrangea-light) 0 34%,
+          var(--hydrangea-mid) 35% 41%,
+          transparent 42%
+        ),
+        radial-gradient(
+          circle at 55% 55%,
+          var(--hydrangea-light) 0 34%,
+          var(--hydrangea-mid) 35% 41%,
+          transparent 42%
+        ),
+        radial-gradient(
+          circle at 80% 55%,
+          var(--hydrangea-light) 0 33%,
+          var(--hydrangea-mid) 34% 40%,
+          transparent 41%
+        ),
+        radial-gradient(
+          circle at 40% 80%,
+          var(--hydrangea-light) 0 32%,
+          var(--hydrangea-mid) 33% 39%,
+          transparent 40%
+        ),
+        radial-gradient(
+          circle at 65% 82%,
+          var(--hydrangea-light) 0 32%,
+          var(--hydrangea-mid) 33% 39%,
+          transparent 40%
+        ),
+        radial-gradient(
+          circle at 10% 45%,
+          var(--hydrangea-light) 0 30%,
+          var(--hydrangea-mid) 31% 37%,
+          transparent 38%
+        ),
+        radial-gradient(
+          circle at 90% 45%,
+          var(--hydrangea-light) 0 30%,
+          var(--hydrangea-mid) 31% 37%,
+          transparent 38%
+        ),
+        radial-gradient(
+          circle at 25% 10%,
+          var(--hydrangea-light) 0 30%,
+          var(--hydrangea-mid) 31% 37%,
+          transparent 38%
+        ),
+        radial-gradient(
+          circle at 75% 10%,
+          var(--hydrangea-light) 0 30%,
+          var(--hydrangea-mid) 31% 37%,
+          transparent 38%
+        ),
+        radial-gradient(
+          circle at 50% 70%,
+          var(--hydrangea-light) 0 32%,
+          var(--hydrangea-mid) 33% 39%,
+          transparent 40%
+        );
+      opacity: 0.98;
+      filter: drop-shadow(0 0.6vmin 0.8vmin rgba(10, 25, 60, 0.35));
     }
   }
 
@@ -165,14 +262,23 @@ body {
     position: absolute;
     bottom: 0;
     left: 50%;
-    width: 8vmin;
-    height: 11vmin;
-    border-radius: 51% 49% 47% 53% / 44% 45% 55% 69%;
-    background-color: #a7ffee;
-    background-image: linear-gradient(to top, #54b8aa, #a7ffee);
+    width: 6vmin;
+    height: 6vmin;
+    border-radius: 50%;
+    background-color: var(--hydrangea-light);
+    background-image: linear-gradient(
+      to top,
+      var(--hydrangea-dark),
+      var(--hydrangea-light)
+    );
     transform-origin: bottom center;
-    opacity: 0.9;
-    box-shadow: inset 0 0 2vmin rgba(255, 255, 255, 0.5);
+    opacity: 0.1;
+    box-shadow:
+      inset 0 0 2vmin rgba(255, 255, 255, 0.5),
+      2.2vmin 1vmin 0 -0.8vmin var(--hydrangea-light),
+      -2.4vmin 0.5vmin 0 -0.9vmin var(--hydrangea-mid),
+      0 2.6vmin 0 -0.9vmin var(--hydrangea-light),
+      -0.8vmin 3.4vmin 0 -1.1vmin var(--hydrangea-glow);
 
     &--1 {
       transform: translate(-10%, 1%) rotateY(40deg) rotateX(-50deg);
@@ -187,12 +293,16 @@ body {
     }
 
     &--4 {
-      width: 8vmin;
-      height: 8vmin;
-      transform-origin: bottom left;
-      border-radius: 4vmin 10vmin 4vmin 4vmin;
-      transform: translate(-0%, 18%) rotateX(70deg) rotate(-43deg);
-      background-image: linear-gradient(to top, #39c6d6, #a7ffee);
+      width: 6vmin;
+      height: 6vmin;
+      transform-origin: center;
+      border-radius: 50%;
+      transform: translate(-20%, 15%) rotateX(50deg) rotate(-20deg);
+      background-image: linear-gradient(
+        to top,
+        var(--hydrangea-mid),
+        var(--hydrangea-light)
+      );
       z-index: 1;
       opacity: 0.8;
     }
@@ -200,12 +310,12 @@ body {
 
   &__white-circle {
     position: absolute;
-    left: -3.5vmin;
-    top: -3vmin;
-    width: 9vmin;
-    height: 4vmin;
+    left: -2.5vmin;
+    top: -2.5vmin;
+    width: 6vmin;
+    height: 6vmin;
     border-radius: 50%;
-    background-color: #fff;
+    background-color: rgba(200, 215, 255, 0.2);
 
     &::after {
       content: "";
@@ -399,13 +509,13 @@ body {
     bottom: 0vmin;
     width: 1vmin;
     height: 1vmin;
-    background-color: rgb(255, 251, 0);
+    background-color: var(--hydrangea-mid);
     border-radius: 50%;
     filter: blur(0.2vmin);
     animation: light-ans 4s linear infinite backwards;
 
     &:nth-child(odd) {
-      background-color: #23f0ff;
+      background-color: var(--hydrangea-glow);
     }
 
     &--1 {
